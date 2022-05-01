@@ -1,8 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
+import { Outlet } from 'react-router'
 
-const Home = () => {
+const Home: FC = () => {
   return (
-    <div>Home</div>
+    <div className='h-full w-full p-2'>
+      <Outlet />
+    </div>
   )
 }
 
