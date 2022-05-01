@@ -6,6 +6,7 @@ import useFetchPokemonList from './hooks/useFetchPokemonList'
 // Custome hooks
 import Home from './pages/Home'
 import Pokemon from './pages/Pokemon'
+import NavBar from './components/NavBar'
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
 
   return (
 
-    <div className="bg-blue h-full w-full">
+    <div className="h-screen w-screen">
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="pokemon" element={<Pokemon />} />
