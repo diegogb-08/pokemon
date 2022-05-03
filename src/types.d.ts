@@ -11,6 +11,13 @@ export interface PokemonList {
   results: ResultUrl[]
 }
 
+export interface PokemonListResult {
+  results: Pokemon[]
+  count: number
+  next: string | null
+  previous: string | null
+}
+
 export interface Pokemon {
   abilities: Abilitiy[]
   base_experience: number

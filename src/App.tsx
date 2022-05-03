@@ -27,12 +27,12 @@ function App() {
 
   return (
 
-    <div className="min-h-screen w-screen bg-blue-200">
+    <div className="min-h-screen w-screen bg-blue-100">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} >
-          <Route path="grid" element={<PokemonGrid pokemonList={pokemonList} />} />
-          <Route path="list" element={<PokemonList pokemonList={pokemonList} />} />
+          <Route path="grid" element={<PokemonGrid pokemonList={pokemonList?.results} />} />
+          <Route path="list" element={<PokemonList pokemonList={pokemonList?.results} />} />
         </Route>
         <Route path="/pokemon" element={<Pokemon />} />
       </Routes>

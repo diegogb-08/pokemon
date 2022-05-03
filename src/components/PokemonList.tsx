@@ -3,7 +3,7 @@ import { Pokemon } from "../types"
 
 
 interface Props {
-  pokemonList: (Pokemon | undefined)[] | undefined
+  pokemonList: Pokemon[] | undefined
 }
 
 const PokemonList: FC<Props> = ({ pokemonList }) => {
