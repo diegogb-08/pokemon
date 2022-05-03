@@ -1,9 +1,8 @@
+import { useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 // Hooks
 import useFetchPokemonList from './hooks/useFetchPokemonList'
-
-import { useEffect } from "react"
 
 // Custome hooks
 import Home from './pages/Home'
@@ -18,8 +17,6 @@ function App() {
   const { data: pokemonList, } = useFetchPokemonList()
 
   console.log(pokemonList)
-
-
 
   useEffect(() => {
     navigate('/grid')
