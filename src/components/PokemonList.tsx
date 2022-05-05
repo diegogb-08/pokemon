@@ -8,7 +8,12 @@ interface Props {
 
 const PokemonList: FC<Props> = ({ pokemonList }) => {
   return (
-    <div className="h-full w-full flex flex-col">
+    <motion.div
+      className="h-full w-full flex flex-col"
+      initial={{ width: 0 }}
+      animate={{ width: '100%', transition: { duration: 0.2 } }}
+      exit={{ x: window.innerWidth }}
+    >
       {
         pokemonList?.map(pokemon => {
           return (
@@ -20,12 +25,12 @@ const PokemonList: FC<Props> = ({ pokemonList }) => {
                 textShadow: "0px 0px 4px gray"
               }}
             >
-              <img src={pokemon?.sprites.front_default} loading="lazy" className="mx-8" />
+              <img src={pokemon?.sprites.front_default} className="mx-8" />
               <p className="font-bold">{pokemon?.name.toUpperCase()}</p>
             </motion.div>)
         })
       }
-    </div>
+    </motion.div>
   )
 }
 

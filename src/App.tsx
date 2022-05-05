@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Routes, Route, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
 
 // Hooks
 import useFetchPokemonList from './hooks/useFetchPokemonList'
@@ -14,9 +14,8 @@ import PokemonList from './components/PokemonList'
 function App() {
 
   const navigate = useNavigate()
-  const { data: pokemonList, } = useFetchPokemonList()
-
-  console.log(pokemonList)
+  const { data: pokemonList, isLoading } = useFetchPokemonList()
+  const location = useLocation()
 
   useEffect(() => {
     navigate('/grid')
@@ -26,9 +25,9 @@ function App() {
 
     <div className="min-h-screen w-screen bg-blue-100">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} >
-          <Route path="grid" element={<PokemonGrid pokemonList={pokemonList?.results} />} />
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home totalItems={pokemonList?.count} />} >
+          <Route path="grid" element={<PokemonGrid pokemonList={pokemonList?.results} isLoading={isLoading} />} />
           <Route path="list" element={<PokemonList pokemonList={pokemonList?.results} />} />
         </Route>
         <Route path="/pokemon" element={<Pokemon />} />
